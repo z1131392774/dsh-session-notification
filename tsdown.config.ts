@@ -26,7 +26,7 @@ import { basename, dirname, resolve as resolvePath } from 'node:path'
 import type { UserConfig } from 'tsdown'
 import { transform } from 'lightningcss'
 
-const PLUGIN_ID = '@dingyi222666/dsh-session-notification'
+const PLUGIN_ID = '@z1131392774/dsh-session-notification'
 
 /** The browser platform seed modules the shell shares into the frozen module
  *  table (0.2.1-rc.2 table: react family, cordis, zod, react-virtual, store,

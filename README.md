@@ -1,6 +1,6 @@
 # dsh-session-notification
 
-[![npm version](https://img.shields.io/npm/v/@dingyi222666/dsh-session-notification.svg)](https://www.npmjs.com/package/@dingyi222666/dsh-session-notification)
+[![GitHub](https://img.shields.io/badge/GitHub-z1131392774%2Fdsh--session--notification-181717?logo=github)](https://github.com/z1131392774/dsh-session-notification)
 
 English | [中文](README.zh.md)
 
@@ -15,8 +15,8 @@ A notification plugin for the dsh web GUI. When a session finishes, hits an erro
 ## Install
 
 ```sh
-# Install from npm (requires dsh >= 0.2.3-alpha.1)
-dsh plugin --profile web add @dingyi222666/dsh-session-notification
+# Install from this repository (requires dsh >= 0.2.3-alpha.1)
+dsh plugin --profile web add github:z1131392774/dsh-session-notification
 # Restart dsh web for it to take effect
 dsh web
 ```

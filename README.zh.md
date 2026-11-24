@@ -1,6 +1,6 @@
 # dsh-session-notification
 
-[![npm version](https://img.shields.io/npm/v/@dingyi222666/dsh-session-notification.svg)](https://www.npmjs.com/package/@dingyi222666/dsh-session-notification)
+[![GitHub](https://img.shields.io/badge/GitHub-z1131392774%2Fdsh--session--notification-181717?logo=github)](https://github.com/z1131392774/dsh-session-notification)
 
 **中文** | [English](./README.md)
 
@@ -15,8 +15,8 @@
 ## 安装
 
 ```sh
-# 从 npm 安装（需要 dsh >= 0.2.3-alpha.1）
-dsh plugin --profile web add @dingyi222666/dsh-session-notification
+# 从本仓库安装（需要 dsh >= 0.2.3-alpha.1）
+dsh plugin --profile web add github:z1131392774/dsh-session-notification
 # 重启 dsh web 后生效
 dsh web
 ```

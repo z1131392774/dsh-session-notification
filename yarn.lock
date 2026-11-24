@@ -407,41 +407,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dingyi222666/dsh-session-notification@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@dingyi222666/dsh-session-notification@workspace:."
-  dependencies:
-    "@deepseek-ai/cordis": "npm:^4.1.0"
-    "@deepseek-ai/dsh-api-session-controller": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-connection": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-locale": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-store": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-conversation": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-primitives": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-renderer": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-session": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-session-status": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-settings": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-slots": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-client-ui-workspace": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/dsh-settings": "npm:^0.2.3-alpha.1"
-    "@deepseek-ai/schemastery": "npm:^3.19.0"
-    "@testing-library/dom": "npm:^10.4.0"
-    "@testing-library/react": "npm:^16.1.0"
-    "@types/node": "npm:^24.0.0"
-    "@types/react": "npm:~18.3.1"
-    "@types/react-dom": "npm:~18.3.0"
-    jsdom: "npm:^25.0.0"
-    lightningcss: "npm:^1.25.0"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
-    tsdown: "npm:^0.22.2"
-    tsx: "npm:^4.23.13"
-    typescript: "npm:^6.0.3"
-    vitest: "npm:^4.1.8"
-  languageName: unknown
-  linkType: soft
-
 "@esbuild/aix-ppc64@npm:0.28.2":
   version: 0.28.2
   resolution: "@esbuild/aix-ppc64@npm:0.28.2"
@@ -1126,6 +1091,41 @@ __metadata:
   checksum: 10c0/5ee3ad4f13b3d8db7ce6b29fed1994d5216b182de75e1e63d2f12d6588ec2d666e9bbfd157a06be742bea07c3866e6ddaab7e31142fe48c038771ad895e4c58d
   languageName: node
   linkType: hard
+
+"@z1131392774/dsh-session-notification@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@z1131392774/dsh-session-notification@workspace:."
+  dependencies:
+    "@deepseek-ai/cordis": "npm:^4.1.0"
+    "@deepseek-ai/dsh-api-session-controller": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-connection": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-locale": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-store": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-conversation": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-primitives": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-renderer": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-session": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-session-status": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-settings": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-slots": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-client-ui-workspace": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/dsh-settings": "npm:^0.2.3-alpha.1"
+    "@deepseek-ai/schemastery": "npm:^3.19.0"
+    "@testing-library/dom": "npm:^10.4.0"
+    "@testing-library/react": "npm:^16.1.0"
+    "@types/node": "npm:^24.0.0"
+    "@types/react": "npm:~18.3.1"
+    "@types/react-dom": "npm:~18.3.0"
+    jsdom: "npm:^25.0.0"
+    lightningcss: "npm:^1.25.0"
+    react: "npm:^18.2.0"
+    react-dom: "npm:^18.2.0"
+    tsdown: "npm:^0.22.2"
+    tsx: "npm:^4.23.13"
+    typescript: "npm:^6.0.3"
+    vitest: "npm:^4.1.8"
+  languageName: unknown
+  linkType: soft
 
 "abbrev@npm:^5.0.0":
   version: 5.0.0
