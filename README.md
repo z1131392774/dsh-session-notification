@@ -15,7 +15,7 @@ A notification plugin for the dsh web GUI. When a session finishes, hits an erro
 ## Install
 
 ```sh
-# Install from npm (requires dsh >= 0.2.1-rc.2)
+# Install from npm (requires dsh >= 0.2.3-alpha.1)
 dsh plugin --profile web add @dingyi222666/dsh-session-notification
 # Restart dsh web for it to take effect
 dsh web
@@ -90,7 +90,7 @@ The browser half watches the sessions list snapshot and each session's conversat
 - `yarn run build` — builds the browser bundle (`lib/client.js`) and the Node half (`lib/index.js`).
 - `src/client/notification-service.ts` — the engine (classification) and dispatcher (gating); `src/client/settings-store.ts` — the settings section bridge; `src/client/NotificationsSection.tsx` — the section UI; `src/client/sounds.ts` + `src/client/custom-audio.ts` — the built-in and custom sounds.
 - `yarn test` — behavior tests; `yarn run typecheck` — type gate.
-- dsh 0.2.1-rc.2: the `@deepseek-ai/dsh-*` types install from npm as devDependencies (`^0.2.1-rc.2`, with the now-stable `@deepseek-ai/cordis` ^4.0.5 and `@deepseek-ai/schemastery` ^3.18.5 matching the dsh peers); no checkout path mappings. The 0.2.1 line removed the runtime invariant-plugin mechanism (as of alpha.1), so the former `./invariant` companion is gone.
+- dsh 0.2.3-alpha.1: the `@deepseek-ai/dsh-*` types install from npm as devDependencies (`^0.2.3-alpha.1`, with `@deepseek-ai/cordis` ^4.1.0 and `@deepseek-ai/schemastery` ^3.19.0 matching the dsh peers); no checkout path mappings. Since dsh 0.2.2-rc.2 the session-status table lives in its own `@deepseek-ai/dsh-client-ui-session-status` client package: reading `ctx.uiSession.sessionStatus` first reads the `uiSession` service and then resolves the dotted child through its traceable proxy, so the Cordis `inject` declares both `'uiSession'` and `'uiSession.sessionStatus'` (the dotted name alone fails with `cannot get property "uiSession" without inject`), and that package is listed in `dsh.client.inject`; `engines.dsh` declares the supported host range.
 - Node-half changes need a `dsh web` restart; browser-bundle changes need a rebuild (`yarn run build`) — a `--dev` server hot-reloads them.
 
 ## Known limitations

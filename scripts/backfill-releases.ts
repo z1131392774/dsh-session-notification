@@ -19,7 +19,7 @@ import { buildReleaseBody } from './release-body.ts'
 import { RELEASE_NOTES } from './release-notes.ts'
 
 const ROOT = fileURLToPath(new URL('..', import.meta.url))
-const REPO = 'dingyi222666/dsh-session-notification'
+const REPO = 'z1131392774/dsh-session-notification'
 
 /** Version -> the commit the `v<version>` tag points at. */
 const VERSIONS: ReadonlyArray<readonly [version: string, commit: string]> = [

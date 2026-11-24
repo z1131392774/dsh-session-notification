@@ -36,9 +36,14 @@ import type {} from '@deepseek-ai/dsh-client-locale/client'
 import type {} from '@deepseek-ai/dsh-api-session-controller/client'
 import type { SessionSnapshot } from '@deepseek-ai/dsh-api-session-controller/client'
 import type {} from '@deepseek-ai/dsh-client-ui-conversation/client'
+// Type-only: the `uiSession.sessionStatus` service, split out of
+// dsh-client-ui-session into its own package in dsh 0.2.3; a reader declares
+// both `uiSession` and the dotted property `uiSession.sessionStatus` in its
+// inject list (the former to read the parent service, the latter for the
+// child table).
 import type {
   SessionStatusSnapshot,
-} from '@deepseek-ai/dsh-client-ui-session/client'
+} from '@deepseek-ai/dsh-client-ui-session-status/client'
 // Type-only: the workspace navigation merge (ctx.uiWorkspace). Injected
 // optionally so a composition without it keeps the plugin running.
 import type {} from '@deepseek-ai/dsh-client-ui-workspace/client'
@@ -82,9 +87,24 @@ const NS = 'notifications'
 const SETTLE_MS = 250
 
 /** Required services: the slot registry, dictionaries, the session list, the
- *  alpha chat view (uiConversation), and the pending-interaction map
- *  (uiSession). */
-export const inject = ['slots', 'locale', 'sessions', 'uiConversation', 'uiSession', 'uiWorkspace']
+ *  alpha chat view (uiConversation), the uiSession service together with the
+ *  `uiSession.sessionStatus` table split out of it in dsh 0.2.3 (the table's
+ *  `pendingInteraction` column drives question/approval alerts), and the
+ *  optional workspace navigation.
+ *
+ *  Both names are required: `ctx.uiSession.sessionStatus` first reads the
+ *  `uiSession` service and only then resolves the dotted child through the
+ *  service's traceable proxy, so injecting the dotted name alone makes the
+ *  first property read throw `cannot get property "uiSession" without inject`. */
+export const inject = [
+  'slots',
+  'locale',
+  'sessions',
+  'uiConversation',
+  'uiSession',
+  'uiSession.sessionStatus',
+  'uiWorkspace',
+]
 
 /**
  * Client plugin body: bind the browser-local preferences scope, register the
@@ -252,10 +272,10 @@ export function apply(ctx: ClientContext): void {
     return unsubscribe
   }, 'dsh-session-notification: session watch')
 
-  // dsh 0.1.7 unified the pending-interaction map into the uiSession session
-  // status source (running + pendingInteraction + completionUnread per
-  // session): observe its pendingInteraction values for question/approval
-  // edges.
+  // dsh 0.1.7 unified the pending-interaction map into the session-status
+  // source (running + pendingInteraction + completionUnread per session);
+  // dsh 0.2.3 split that source into the `uiSession.sessionStatus` service.
+  // Observe its pendingInteraction values for question/approval edges.
   const pendingFactsOf = (statuses: SessionStatusSnapshot): Map<SessionId, PendingFacts> => {
     const out = new Map<SessionId, PendingFacts>()
     for (const [id, status] of statuses) {

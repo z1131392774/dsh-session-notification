@@ -21,7 +21,7 @@ export interface ReleaseNotes {
   fixes: readonly string[]
 }
 
-const REPO = 'dingyi222666/dsh-session-notification'
+const REPO = 'z1131392774/dsh-session-notification'
 
 /**
  * Build the release body for one version.

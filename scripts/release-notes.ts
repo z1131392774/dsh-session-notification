@@ -196,6 +196,13 @@ export const RELEASE_NOTES: Record<string, ReleaseNotes> = {
     ],
     fixes: [],
   },
+  '0.2.9': {
+    features: [],
+    fixes: [
+      '- **适配 dsh 0.2.3-alpha.1（会话状态拆包）**: dsh 0.2.2-rc.2 起会话状态从 ui-session 拆出独立的客户端包 `@deepseek-ai/dsh-client-ui-session-status`，`ctx.uiSession.sessionStatus` 成了必须显式声明的注入服务；Cordis 4.1 下读它要先读父服务 `uiSession`，再经该服务的 traceable 代理解析点号子服务，因此只把 `uiSession` 换成 `uiSession.sessionStatus` 仍会让整份插件激活失败（`cannot get property "uiSession" without inject`，设置面板没有「通知」栏目、提示音与浏览器通知全部不响）。现在 Cordis `inject` 同时声明 `uiSession` 与 `uiSession.sessionStatus`，`SessionStatusSnapshot` 类型改从 `@deepseek-ai/dsh-client-ui-session-status/client` 导入，`dsh.client.inject` 补上该客户端包，并用 `engines.dsh` 声明 `^0.2.3-alpha.1`；typecheck/146 specs/build 全绿',
+      '- **依赖升级至 0.2.3-alpha.1**: @deepseek-ai/dsh-* 升到 ^0.2.3-alpha.1、cordis ^4.1.0 / schemastery ^3.19.0；0.2.2-rc.1→0.2.3-alpha.1 的消费面逐项核对：会话状态（拆包后经 `uiSession.sessionStatus` 注入）、chat target 与 `assistant-step.blocks` / `turn-error.seq+message`、`uiWorkspace.openSession`、`sessions.using`、`settings.section` 席位与 ConfigForm 契约、五个 OutlineRegular 图标全部保持，代码改动仅注入声明与类型导入来源',
+    ],
+  },
   '0.2.8': {
     features: [],
     fixes: [
