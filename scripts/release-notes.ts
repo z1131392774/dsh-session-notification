@@ -196,6 +196,13 @@ export const RELEASE_NOTES: Record<string, ReleaseNotes> = {
     ],
     fixes: [],
   },
+  '0.2.10': {
+    features: [],
+    fixes: [
+      '- **完成/失败判定在 dsh 0.2.3 的 `conversation` facet 下继续可见（合并上游同版本修复）**: dsh 0.2.3 让会话对话装配只在有引用持有 `conversation` retain facet 时才跟随事件窗口，最后一个持有者释放后立即丢弃折叠并发布空结果；本插件此前用 `sessions.using(id, { source })` 打开未打开的会话却没请求该 facet，chat 快照恒为空，导致「标题取最后一条用户消息」与失败判定退化。现在改为在持有 `facets: { conversation: true }` 期间完成读取（新端口 `detailWithin` 取代 `ensureDetail`），读取失败仍回落到无对话快照的判定',
+      '- **依赖升级至 0.2.3-alpha.2**: @deepseek-ai/dsh-* 升到 ^0.2.3-alpha.2、cordis ~4.2.0-alpha.1 / schemastery ^3.20.0-alpha.1；0.2.3 的 `SessionRetainFacetMap` 由 ui-conversation 声明 `conversation` facet、`sessions.using` 的 retain 选项增加 facet 维度，本插件只新增该 facet 请求与上述读取时序调整，其余消费面（会话状态表、`sessions.list`、`uiConversation` chat target）保持；typecheck / 146 specs / build 全绿',
+    ],
+  },
   '0.2.9': {
     features: [],
     fixes: [

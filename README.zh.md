@@ -90,7 +90,7 @@ desktop profile（`$DSH_HOME/profiles/desktop`）由桌面应用独占，CLI 会
 - `yarn run build` —— 构建浏览器包（`lib/client.js`）与 Node 半区（`lib/index.js`）。
 - `src/client/notification-service.ts` —— 引擎（事件判定）与分发器（开关/音效/通知门控）；`src/client/settings-store.ts` —— 设置栏桥接；`src/client/NotificationsSection.tsx` —— 设置栏 UI；`src/client/sounds.ts` 与 `src/client/custom-audio.ts` —— 内置与自定义音效。
 - `yarn test` —— 行为测试；`yarn run typecheck` —— 类型门禁。
-- dsh 0.2.3-alpha.1：`@deepseek-ai/dsh-*` 类型作为 devDependencies（`^0.2.3-alpha.1`，`@deepseek-ai/cordis` ^4.1.0、`@deepseek-ai/schemastery` ^3.19.0，与 dsh 包的 peer 依赖一致）从 npm 安装，不再需要检出路径映射。dsh 0.2.2-rc.2 起会话状态表拆到独立的 `@deepseek-ai/dsh-client-ui-session-status` 客户端包；读 `ctx.uiSession.sessionStatus` 会先读 `uiSession` 服务、再经其 traceable 代理解析点号子服务，因此客户端 Cordis `inject` 同时声明 `'uiSession'` 与 `'uiSession.sessionStatus'`（只声明点号名会抛 `cannot get property "uiSession" without inject`），该包也列入 `dsh.client.inject`；`engines.dsh` 声明支持的宿主版本范围。
+- dsh 0.2.3-alpha.2：`@deepseek-ai/dsh-*` 类型作为 devDependencies（`^0.2.3-alpha.2`；`@deepseek-ai/cordis` ~4.2.0-alpha.1、`@deepseek-ai/schemastery` ^3.20.0-alpha.1，与 dsh 包的 peer 依赖一致）从 npm 安装，不需要检出路径映射。dsh 0.2.2-rc.2 起会话状态表拆到独立的 `@deepseek-ai/dsh-client-ui-session-status` 客户端包；读 `ctx.uiSession.sessionStatus` 会先读 `uiSession` 服务、再经其 traceable 代理解析点号子服务，因此客户端 Cordis `inject` 同时声明 `'uiSession'` 与 `'uiSession.sessionStatus'`（只声明点号名会抛 `cannot get property "uiSession" without inject`），该包也列入 `dsh.client.inject`；`engines.dsh` 声明支持的宿主版本范围。dsh 0.2.3 起会话对话装配只在有引用持有 `conversation` retain facet 时才跟随事件窗口，因此未打开的会话改为在 `sessions.using(..., { facets: { conversation: true } })` 的持有期内读取（`detailWithin`），而不是释放后再读。
 - Node 半区改动需要重启 `dsh web`；浏览器包改动重新 `yarn run build` 即可（`--dev` 模式会自动热更新）。
 
 ## 已知限制
